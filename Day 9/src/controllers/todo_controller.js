@@ -1,4 +1,4 @@
-import { Todo } from "../models/todo_model";
+import { Todo } from "../models/todo_model.js";
 
 
 // create
@@ -7,11 +7,12 @@ export const createTodo = () => {}
 // read all
 export const getTodo = () => {};
 
+// read by id
+export const getTodoById = () => {}
+
 // delete
 export const deleteTodo = () => {};
 
-// read by id
-export const getTodoById = () => {}
 
 // update
 export const updateTodo = () => {}
