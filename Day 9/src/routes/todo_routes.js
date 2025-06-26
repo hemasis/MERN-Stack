@@ -1,7 +1,10 @@
 import express from "express";
 import {
     createTodo,
-    getTodo
+    deleteTodo
+    getTodo,
+    getTodoById,
+    updateTodo
 } from "../controllers/todo_controller";
 
 
