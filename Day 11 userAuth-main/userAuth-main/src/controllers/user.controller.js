@@ -4,6 +4,9 @@ import { User } from "../models/user.model.js";
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 
+const generateAccessAndRefreshToken = async(userId) => {
+
+}
 const registerUser = asyncHandler(async (req, res) => {
   // res.status(201).json({ message: "Everything is okay" })
 
@@ -75,4 +78,48 @@ const registerUser = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, createdUser, "user registered successfully!!!"));
 });
 
-export { registerUser };
+
+const loginUser = asyncHandler(async (req, res) => {
+  // req body -> data
+  // username or email validate
+  // find the user
+  // password
+  // /access and refresh token
+  // send cookies
+
+  
+  const {email, username, password} = req.body
+  console.log("email", email);
+
+  if(!username && !email){
+    throw new ApiError(400, "Username or email is required")
+  }
+
+  const user = await User.findOne({
+    $or: [{email}, {username}]
+  })
+
+  if(!user){
+    throw new ApiError(404, "User not found with this email or username")
+  }
+
+  res.status(200).json({ message: "Login User" });
+})
+
+
+const loggedInUser = User.findById(user._id).select("-password -refreshToken")
+
+const options = {
+  httpOnly: true,
+  secure: true
+}
+
+return res
+.status(200)
+.cookie("accessToken", accessToken, options)
+.cookie("refreshToken", refreshToken, options)
+.json(
+  new ApiResponse(200, {user: loggedInUser, accessToken, refreshToken}, "User logged in successfully")
+)
+
+export { registerUser, loginUser };
