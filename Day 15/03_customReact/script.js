@@ -1,16 +1,16 @@
-
 function customRender(reactElement, container) {
-    // const domElement = document.createElement(reactElement.type);
-    // domElement.innerHTML - reactElement.props.children;
-    // domElement.setAttribute('href', reactElement.props.href);
-    // domElement.setAttribute('target', reactElement.props.target);
-    // container.appendChild(domElement);
+    // const domElemet = document.createElement(reactElement.type);
+    // domElemet.innerHTML = reactElement.children;
+    // domElemet.setAttribute('href', reactElement.props.href);
+    // domElemet.setAttribute('target', reactElement.props.target);
+
+    // container.appendChild(domElemet);
 
     const domElement = document.createElement(reactElement.type);
     domElement.innerHTML = reactElement.children;
-    for(const prop in reactElement.props) {
+    for (const prop in reactElement.props) {
         if(prop === 'children') continue;
-        domElement.setAttribute(prop, reactElement.props[prop]);
+        domElement.setAttribute(prop, reactElement.props[prop])
     }
     container.appendChild(domElement);
 }
@@ -21,8 +21,11 @@ const reactElement = {
         href: 'https://google.com',
         target: '_blank',
     },
-    children: 'Googly Dotcom'
+    children: 'Gooogly DotCom'
 }
 
+
+
 const mainContainer = document.getElementById("root")
-customRender(reactElement, mainContainer);
+
+customRender(reactElement, mainContainer)
