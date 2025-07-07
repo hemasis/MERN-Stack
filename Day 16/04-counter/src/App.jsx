@@ -8,13 +8,14 @@ function App() {
 
   // let counter = 5;
 
-  function addValue(){
-    // console.log(counter+1)
-    // counter = counter + 1
-    setCounter(counter + 1)
+  function addValue() {
+    setCounter(counter + 1);
   }
-  function removeValue(){
-    setCounter(counter - 1)
+
+  function removeValue() {
+    if (counter > 0) {
+      setCounter(counter - 1);
+    }
   }
 
   return (
