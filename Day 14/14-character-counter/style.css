@@ -1,0 +1,28 @@
+body {
+  font-family: sans-serif;
+  background: #f9f9f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.box {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+textarea {
+  width: 100%;
+  height: 120px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: none;
+}
+.counter {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+}
